@@ -1,0 +1,107 @@
+{
+    "name": "Dog",
+    "fields": [
+        {
+            "fieldName": "puceId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "tatooId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": 6,
+            "fieldValidateRulesMaxlength": 7
+        },
+        {
+            "fieldName": "passportId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "birthday",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "sexe",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hcNum",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "center",
+            "otherEntityRelationshipName": "name",
+            "relationshipName": "centerName"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "breeding",
+            "otherEntityRelationshipName": "name",
+            "relationshipName": "breedingName"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "familly",
+            "otherEntityRelationshipName": "name",
+            "relationshipName": "famillyName"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "weight",
+            "otherEntityRelationshipName": "dog",
+            "relationshipName": "weight"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "healthSheet",
+            "otherEntityRelationshipName": "dog",
+            "relationshipName": "healthSheet"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "bilanCheck",
+            "otherEntityRelationshipName": "dog",
+            "relationshipName": "dateBilan",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "race",
+            "otherEntityRelationshipName": "name",
+            "relationshipName": "raceName",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "color",
+            "otherEntityRelationshipName": "name",
+            "relationshipName": "colorName",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190416145541",
+    "javadoc": "Creation Entitiy",
+    "entityTableName": "dog",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

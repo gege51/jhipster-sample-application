@@ -1,0 +1,36 @@
+{
+    "name": "BilanCheck",
+    "fields": [
+        {
+            "fieldName": "date",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "bilanType",
+            "otherEntityRelationshipName": "bilanCheck",
+            "relationshipName": "bilanType",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "criteria",
+            "otherEntityRelationshipName": "bilanCheck",
+            "relationshipName": "criteria",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20190416145553",
+    "entityTableName": "bilan_check",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

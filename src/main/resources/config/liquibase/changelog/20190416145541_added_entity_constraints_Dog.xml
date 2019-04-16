@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Dog.
+    -->
+    <changeSet id="20190416145541-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="dog_id"
+                                 baseTableName="dog_date_bilan"
+                                 constraintName="fk_dog_date_bilan_dog_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="dog"/>
+        <addForeignKeyConstraint baseColumnNames="date_bilan_id"
+                                 baseTableName="dog_date_bilan"
+                                 constraintName="fk_dog_date_bilan_date_bilan_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bilan_check"/>
+        
+        <addForeignKeyConstraint baseColumnNames="race_name_id"
+                                 baseTableName="dog"
+                                 constraintName="fk_dog_race_name_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="race"/>
+
+        <addForeignKeyConstraint baseColumnNames="color_name_id"
+                                 baseTableName="dog"
+                                 constraintName="fk_dog_color_name_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="color"/>
+
+    </changeSet>
+</databaseChangeLog>
