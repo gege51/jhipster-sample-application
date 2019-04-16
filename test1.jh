@@ -1,0 +1,112 @@
+/** Creation Entitiy*/
+
+entity Dog{
+    puceId 		Integer minlength(15) maxlength(15) ,
+    tatooId		String  minlength(6)  maxlength(7)	,
+    passportId 	Integer								,
+	name 		String								,
+	name1 		String								,
+	birthday 	Instant								,
+    sexe 		String								,
+    
+    hcNum		String	// ??? 
+}
+
+entity Race{
+	name		String
+}
+
+entity Color{
+	name		String
+}
+
+entity Weight{
+	date		Instant	,
+    weight		Float	,
+    qtyRation	Integer	,
+    nbRation	Integer	,
+    observation	String
+}
+
+entity Center{
+	name 		String
+}
+
+entity Breeding{
+	name		String
+}
+
+entity Familly{
+	name		String
+}
+
+entity Location {
+	street 			String,
+	postalCode 		String,
+	city 		 	String,
+	state		 	String,
+    phone			String,
+    mail		 	String
+}
+
+entity HealthSheet{
+	date			Instant ,
+    reason			String 	,
+    comment			String
+
+}
+
+// 
+entity Categorie{
+	name			String	,
+    description		String	,
+    header			Boolean ,
+    weight			Float	,	// For multiplication
+    resultat		Float	,
+    comment			String
+}
+
+entity Criteria{
+	name			String	,
+    description		String	,
+    weight			Float	,	// For multiplication
+    value			Float	,
+    comment			String
+}
+
+entity BilanType{
+	type			String	, // 'C'omportement | 'S'anté
+    name			String
+}
+
+entity BilanCheck{
+	date			Instant
+}
+
+/** RELATIONSHIP CREATION */
+/** (OneToMany | ManyToOne| OneToOne | ManyToMany) */
+
+relationship OneToMany{
+	Dog{centerName} 	to Center{name}		,
+    Dog{breedingName} 	to Breeding{name}	,
+    Dog{famillyName} 	to Familly{name}	,
+    Dog					to Weight			,
+    Dog					to HealthSheet		,
+    Race{name}			to Dog{raceName}	,
+    Color{name}			to Dog{ColorName}	,
+    Categorie{name}		to Categorie{subcat}
+    
+}
+
+relationship ManyToMany{
+	Location 			to Center	,
+	Location 			to Breeding	,
+    Location 			to Familly	,
+    Categorie			to Criteria ,
+    BilanCheck			to BilanType,
+    BilanCheck			to Criteria	,
+    Dog{dateBilan}		to BilanCheck
+}
+
+
+	
