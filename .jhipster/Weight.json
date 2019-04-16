@@ -1,0 +1,43 @@
+{
+    "name": "Weight",
+    "fields": [
+        {
+            "fieldName": "date",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "weight",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "qtyRation",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nbRation",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "observation",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "dog",
+            "otherEntityRelationshipName": "weight",
+            "relationshipName": "dog",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190416145544",
+    "entityTableName": "weight",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

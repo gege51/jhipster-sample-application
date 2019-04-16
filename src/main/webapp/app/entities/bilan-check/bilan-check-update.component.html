@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-bilan-check-heading">Create or edit a Bilan Check</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!bilanCheck.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="bilanCheck.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_date">Date</label>
+                    <div class="d-flex">
+                        <input id="field_date" type="datetime-local" class="form-control" name="date" [(ngModel)]="date" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="field_bilanType">Bilan Type</label>
+                    <select class="form-control" id="field_bilanType" multiple name="bilanType" [(ngModel)]="bilanCheck.bilanTypes">
+                        <option [ngValue]="getSelected(bilanCheck.bilanTypes, bilanTypeOption)" *ngFor="let bilanTypeOption of bilantypes; trackBy: trackBilanTypeById">{{bilanTypeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="field_criteria">Criteria</label>
+                    <select class="form-control" id="field_criteria" multiple name="criteria" [(ngModel)]="bilanCheck.criteria">
+                        <option [ngValue]="getSelected(bilanCheck.criteria, criteriaOption)" *ngFor="let criteriaOption of criteria; trackBy: trackCriteriaById">{{criteriaOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
