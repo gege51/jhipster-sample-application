@@ -1,0 +1,26 @@
+{
+    "name": "Color",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "dog",
+            "otherEntityRelationshipName": "colorName",
+            "relationshipName": "name"
+        }
+    ],
+    "changelogDate": "20190417103648",
+    "entityTableName": "color",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

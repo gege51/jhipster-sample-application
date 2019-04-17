@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="location">
+            <h2><span>Location</span> {{location.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Street</span></dt>
+                <dd>
+                    <span>{{location.street}}</span>
+                </dd>
+                <dt><span>Postal Code</span></dt>
+                <dd>
+                    <span>{{location.postalCode}}</span>
+                </dd>
+                <dt><span>City</span></dt>
+                <dd>
+                    <span>{{location.city}}</span>
+                </dd>
+                <dt><span>State</span></dt>
+                <dd>
+                    <span>{{location.state}}</span>
+                </dd>
+                <dt><span>Phone</span></dt>
+                <dd>
+                    <span>{{location.phone}}</span>
+                </dd>
+                <dt><span>Mail</span></dt>
+                <dd>
+                    <span>{{location.mail}}</span>
+                </dd>
+                <dt><span>Center</span></dt>
+                <dd>
+                    <span *ngFor="let center of location.centers; let last = last">
+                        <a [routerLink]="['/center', center?.id, 'view' ]">{{center.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span>Breeding</span></dt>
+                <dd>
+                    <span *ngFor="let breeding of location.breedings; let last = last">
+                        <a [routerLink]="['/breeding', breeding?.id, 'view' ]">{{breeding.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span>Familly</span></dt>
+                <dd>
+                    <span *ngFor="let familly of location.famillies; let last = last">
+                        <a [routerLink]="['/familly', familly?.id, 'view' ]">{{familly.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/location', location.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

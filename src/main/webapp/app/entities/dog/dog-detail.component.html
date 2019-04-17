@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="dog">
+            <h2><span>Dog</span> {{dog.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Puce Id</span></dt>
+                <dd>
+                    <span>{{dog.puceId}}</span>
+                </dd>
+                <dt><span>Tatoo Id</span></dt>
+                <dd>
+                    <span>{{dog.tatooId}}</span>
+                </dd>
+                <dt><span>Passport Id</span></dt>
+                <dd>
+                    <span>{{dog.passportId}}</span>
+                </dd>
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{dog.name}}</span>
+                </dd>
+                <dt><span>Name 1</span></dt>
+                <dd>
+                    <span>{{dog.name1}}</span>
+                </dd>
+                <dt><span>Birthday</span></dt>
+                <dd>
+                    <span>{{dog.birthday}}</span>
+                </dd>
+                <dt><span>Sexe</span></dt>
+                <dd>
+                    <span>{{dog.sexe}}</span>
+                </dd>
+                <dt><span>Hc Num</span></dt>
+                <dd>
+                    <span>{{dog.hcNum}}</span>
+                </dd>
+                <dt><span>Date Bilan</span></dt>
+                <dd>
+                    <span *ngFor="let dateBilan of dog.dateBilans; let last = last">
+                        <a [routerLink]="['/bilan-check', dateBilan?.id, 'view' ]">{{dateBilan.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span>Race Name</span></dt>
+                <dd>
+                    <div *ngIf="dog.raceName">
+                        <a [routerLink]="['/race', dog.raceName?.id, 'view']">{{dog.raceName?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Color Name</span></dt>
+                <dd>
+                    <div *ngIf="dog.colorName">
+                        <a [routerLink]="['/color', dog.colorName?.id, 'view']">{{dog.colorName?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/dog', dog.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

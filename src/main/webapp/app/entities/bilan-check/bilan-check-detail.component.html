@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="bilanCheck">
+            <h2><span>Bilan Check</span> {{bilanCheck.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Date</span></dt>
+                <dd>
+                    <span>{{bilanCheck.date}}</span>
+                </dd>
+                <dt><span>Bilan Type</span></dt>
+                <dd>
+                    <span *ngFor="let bilanType of bilanCheck.bilanTypes; let last = last">
+                        <a [routerLink]="['/bilan-type', bilanType?.id, 'view' ]">{{bilanType.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span>Criteria</span></dt>
+                <dd>
+                    <span *ngFor="let criteria of bilanCheck.criteria; let last = last">
+                        <a [routerLink]="['/criteria', criteria?.id, 'view' ]">{{criteria.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bilan-check', bilanCheck.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity BilanCheck.
+    -->
+    <changeSet id="20190417103658-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="bilan_check_id"
+                                 baseTableName="bilan_check_bilan_type"
+                                 constraintName="fk_bilan_check_bilan_type_bilan_check_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bilan_check"/>
+        <addForeignKeyConstraint baseColumnNames="bilan_type_id"
+                                 baseTableName="bilan_check_bilan_type"
+                                 constraintName="fk_bilan_check_bilan_type_bilan_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bilan_type"/>
+        
+        <addForeignKeyConstraint baseColumnNames="bilan_check_id"
+                                 baseTableName="bilan_check_criteria"
+                                 constraintName="fk_bilan_check_criteria_bilan_check_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bilan_check"/>
+        <addForeignKeyConstraint baseColumnNames="criteria_id"
+                                 baseTableName="bilan_check_criteria"
+                                 constraintName="fk_bilan_check_criteria_criteria_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="criteria"/>
+        
+    </changeSet>
+</databaseChangeLog>

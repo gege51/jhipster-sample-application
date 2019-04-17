@@ -1,0 +1,61 @@
+{
+    "name": "Categorie",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "header",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "weight",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "resultat",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "comment",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "categorie",
+            "otherEntityRelationshipName": "subcat",
+            "relationshipName": "name"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "criteria",
+            "otherEntityRelationshipName": "categorie",
+            "relationshipName": "criteria",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "categorie",
+            "otherEntityRelationshipName": "name",
+            "relationshipName": "subcat",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190417103655",
+    "entityTableName": "categorie",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
