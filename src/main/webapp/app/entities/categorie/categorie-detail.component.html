@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="categorie">
+            <h2><span>Categorie</span> {{categorie.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{categorie.name}}</span>
+                </dd>
+                <dt><span>Description</span></dt>
+                <dd>
+                    <span>{{categorie.description}}</span>
+                </dd>
+                <dt><span>Header</span></dt>
+                <dd>
+                    <span>{{categorie.header}}</span>
+                </dd>
+                <dt><span>Weight</span></dt>
+                <dd>
+                    <span>{{categorie.weight}}</span>
+                </dd>
+                <dt><span>Resultat</span></dt>
+                <dd>
+                    <span>{{categorie.resultat}}</span>
+                </dd>
+                <dt><span>Comment</span></dt>
+                <dd>
+                    <span>{{categorie.comment}}</span>
+                </dd>
+                <dt><span>Criteria</span></dt>
+                <dd>
+                    <span *ngFor="let criteria of categorie.criteria; let last = last">
+                        <a [routerLink]="['/criteria', criteria?.id, 'view' ]">{{criteria.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span>Subcat</span></dt>
+                <dd>
+                    <div *ngIf="categorie.subcat">
+                        <a [routerLink]="['/categorie', categorie.subcat?.id, 'view']">{{categorie.subcat?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/categorie', categorie.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

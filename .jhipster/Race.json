@@ -1,0 +1,26 @@
+{
+    "name": "Race",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "dog",
+            "otherEntityRelationshipName": "raceName",
+            "relationshipName": "name"
+        }
+    ],
+    "changelogDate": "20190417103647",
+    "entityTableName": "race",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

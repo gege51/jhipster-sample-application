@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="weight">
+            <h2><span>Weight</span> {{weight.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Date</span></dt>
+                <dd>
+                    <span>{{weight.date}}</span>
+                </dd>
+                <dt><span>Weight</span></dt>
+                <dd>
+                    <span>{{weight.weight}}</span>
+                </dd>
+                <dt><span>Qty Ration</span></dt>
+                <dd>
+                    <span>{{weight.qtyRation}}</span>
+                </dd>
+                <dt><span>Nb Ration</span></dt>
+                <dd>
+                    <span>{{weight.nbRation}}</span>
+                </dd>
+                <dt><span>Observation</span></dt>
+                <dd>
+                    <span>{{weight.observation}}</span>
+                </dd>
+                <dt><span>Dog</span></dt>
+                <dd>
+                    <div *ngIf="weight.dog">
+                        <a [routerLink]="['/dog', weight.dog?.id, 'view']">{{weight.dog?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/weight', weight.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
